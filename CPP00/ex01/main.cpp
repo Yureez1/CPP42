@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:55:25 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/07/25 15:10:53 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/07/26 16:51:56 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@ int main(){
     while (true)
     {
         std::cout << "Enter a command [ADD], [SEARCH], [EXIT]: ";
-        std::getline(std::cin, command);
+        if (!std::getline(std::cin, command))
+            break;
+            
         if (command == "ADD" || command == "add")
-            return 0;
+            PhoneBook.addContact();
         else if (command == "SEARCH" || command == "search")
-            return 0;
+            PhoneBook.searchContacts();
         else if (command == "EXIT" || command == "exit")
             break ;
+        else
+            std::cout << "Invalid command." << std::endl;
     }
     
     return 0;

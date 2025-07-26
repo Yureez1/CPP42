@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:55:32 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/07/25 16:34:14 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/07/26 16:51:18 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cstdlib>
 
 class Phonebook {
 
@@ -24,7 +25,6 @@ private:
 
     Contact contacts[8];
     int     contactCount;
-    int     currentIndex;
     int     oldestIndex;
     
 public:
@@ -35,7 +35,9 @@ public:
     void addContact();
     void searchContacts();
     void printTable();
-    
+    void printBottomLine();
+    void displayContactAtIndex(int index) const;
+
 };
 
 #endif
