@@ -3,10 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbanchon <jbanchon@student42.fr>           +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:14:34 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/18 19:14:35 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/19 11:11:28 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanB.hpp"

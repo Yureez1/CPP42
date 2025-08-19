@@ -3,10 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbanchon <jbanchon@student42.fr>           +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:14:37 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/18 19:14:38 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/19 11:12:25 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "HumanA.hpp"
 
