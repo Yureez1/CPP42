@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbanchon <jbanchon@student42.fr>           +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 15:09:17 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/18 15:29:03 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/20 12:29:19 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
-#include <string.h>
+#include <string>
 #include <iostream>
 
 class Zombie

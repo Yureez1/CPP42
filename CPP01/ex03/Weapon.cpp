@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:14:39 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/19 14:47:57 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/20 12:24:58 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Weapon::Weapon(const std::string& type) : _type(type) {}
 
 Weapon::~Weapon() {}
 
-const std::string &getType(void) const {
+const std::string &Weapon::getType(void) const {
     return _type;
 }
 

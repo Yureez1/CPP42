@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbanchon <jbanchon@student42.fr>           +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:14:41 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/18 19:29:06 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/20 12:29:13 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
-#include <string.h>
-
+#include <string>
 #include <iostream>
 
 class Weapon

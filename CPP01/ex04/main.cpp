@@ -5,31 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 19:14:31 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/20 12:18:11 by jbanchon         ###   ########.fr       */
+/*   Created: 2025/08/20 14:04:54 by jbanchon          #+#    #+#             */
+/*   Updated: 2025/08/20 15:30:43 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+int main(int argc, char **argv) {
 
-int main() 
-{
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanA bob("Bob", club);
-        bob.attack();
-        club.setType("some other type of club");
-        bob.attack();
+    if (argc < 4) {
+        std::cout << "Usage : <filename> <string 1> <string 2>" << std::endl;
+        return 1;
     }
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanB jim("Jim");
-        jim.setWeapon(club);
-        jim.attack();
-        club.setType("some other type of club");
-        jim.attack();
-    }   
-    return 0;
+    if (argv[])
+    
 }

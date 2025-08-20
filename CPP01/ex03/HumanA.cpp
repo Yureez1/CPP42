@@ -6,9 +6,20 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:14:37 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/19 11:12:25 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/20 12:28:37 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
+HumanA::HumanA(const std::string& name, Weapon& weapon) : _name(name), _weapon(weapon) {}
+
+HumanA::~HumanA() {}
+
+void HumanA::setName(const std::string& name) {
+    this->_name = name;
+}
+
+void HumanA::attack() const {
+    std::cout << _name << " attack with their " <<  _weapon.getType() << std::endl;
+}
