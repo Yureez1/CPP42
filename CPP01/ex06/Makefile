@@ -1,5 +1,5 @@
-NAME = replace
-SRCS = main.cpp Replacer.cpp
+NAME = harlFilter
+SRCS = main.cpp Harl.cpp
 CXX = c++
 OBJS = $(SRCS:.cpp=.o)
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98
@@ -11,9 +11,9 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(LILA)replacer...$(NC)"
+	@echo "$(LILA)Harl...$(NC)"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)replacer... COMPILED!$(NC)"
+	@echo "$(GREEN)Harl... COMPILED!$(NC)"
 
 clean:
 	@echo "$(LILA)CLEANING OBJECTS FILES...$(NC)"
