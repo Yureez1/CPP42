@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 11:43:22 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/18 12:00:53 by jbanchon         ###   ########.fr       */
+/*   Created: 2025/09/18 09:11:13 by jbanchon          #+#    #+#             */
+/*   Updated: 2025/09/24 16:39:40 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <string>
+#include <iostream>
 
-class Dog : public Animal {
+class Brain {
     
+private:
+    std::string _ideas[100];
+
 public:
-    Dog();
-    Dog(const std::string& type);
-    Dog(const Dog& other);
-    Dog& operator=(const Dog& other);
-    ~Dog();
-
-    virtual void makeSound() const;
+    Brain();
+    Brain(const Brain& other);
+    Brain& operator=(const Brain& other);
+    ~Brain();
+    
+    std::string getIdea(int i) const;
+    void setIdea(int i, const std::string &value);
+    
 };
-
+    
 #endif

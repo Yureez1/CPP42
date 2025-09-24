@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 11:43:15 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/17 11:49:05 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/20 16:52:48 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Cat::Cat() : Animal("Cat") {
 
 Cat::Cat(const std::string& type) : Animal(type) {
     std::cout << this->_type << " Ctor Constructor called" << std::endl;
-    this->_type = type;
 }
 
 Cat::Cat(const Cat& other) : Animal(other._type) {

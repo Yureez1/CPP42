@@ -5,41 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 11:42:38 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/20 16:53:19 by jbanchon         ###   ########.fr       */
+/*   Created: 2025/09/24 12:38:11 by jbanchon          #+#    #+#             */
+/*   Updated: 2025/09/24 12:58:35 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Unknown Animal") {
-    std::cout << this->_type << " Animal Constructor called" << std::endl;   
+AAnimal::AAnimal() : _type("UAnknown AAnimal"){
+    std::cout << "AAnimal constructor called" << std::endl;
 }
 
-Animal::Animal(const std::string& type) {
-    std::cout << "Animal Ctor Constructor called" << std::endl;
+AAnimal::AAnimal(const std::string& type) {
+    std::cout << "AAnimal ctor constructor called" << std::endl;
     this->_type = type;
 }
 
-Animal::Animal(const Animal& other) : _type(other._type) {
-    std::cout << this->_type << " Animal Copy Constructor called" << std::endl;
+AAnimal::AAnimal(const AAnimal& other) : _type(other._type) {
+    std::cout << "AAnimal copy constructor called" << std::endl;
 }
 
-Animal& Animal::operator=(const Animal& other) {
+AAnimal& AAnimal::operator=(const AAnimal& other){
     if (this != &other) {
         this->_type = other._type;
     }
     return *this;
 }
 
-Animal::~Animal() {
-    std::cout << this->_type << " Destructor called" << std::endl;
+AAnimal::~AAnimal() {
+    std::cout << "AAnimal destructor called" << std::endl;
 }
 
-std::string Animal::getType() const {
+std::string AAnimal::getType() const {
     return this->_type;
 }
 
-void Animal::makeSound() const { 
+void AAnimal::makeSound() const {
     std::cout << this->_type << ": " << "Unknown sound" << std::endl;
 }
