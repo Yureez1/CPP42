@@ -11,9 +11,9 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(LILA)FRAGTRAP...$(NC)"
+	@echo "$(LILA)DIAMONDTRAP...$(NC)"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)FRAGTRAP COMPILED!$(NC)"
+	@echo "$(GREEN)DIAMONDTRAP COMPILED!$(NC)"
 
 clean:
 	@echo "$(LILA)CLEANING OBJECTS FILES...$(NC)"

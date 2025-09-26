@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 15:09:17 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/20 12:29:19 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:44:27 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 #include <string>
 #include <iostream>
 
-class Zombie
-{
+class Zombie {
 
 private:
     std::string _name;

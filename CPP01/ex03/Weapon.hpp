@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:14:41 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/20 12:29:13 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:43:12 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <string>
 #include <iostream>
 
-class Weapon
-{
+class Weapon {
+
 private:
     std::string _type;
 

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbanchon <jbanchon@student42.fr>           +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 15:09:11 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/18 18:05:07 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:44:48 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie* newZombie(std::string name) {
+    
     return new Zombie(name);
 }

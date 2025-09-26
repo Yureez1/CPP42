@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:18:36 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/09 14:29:47 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/12 15:09:45 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class FragTrap : public virtual ClapTrap {
 
 public:
+    FragTrap();
     FragTrap(const std::string& name);
     FragTrap(const FragTrap& other);
     FragTrap& operator=(const FragTrap& other);

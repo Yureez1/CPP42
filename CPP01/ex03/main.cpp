@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:14:31 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/20 12:18:11 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/28 14:27:14 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-int main() 
-{
+int main() {
     {
         Weapon club = Weapon("crude spiked club");
         HumanA bob("Bob", club);

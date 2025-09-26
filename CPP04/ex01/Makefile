@@ -11,9 +11,9 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(LILA)POLYMORPH...$(NC)"
+	@echo "$(LILA)POLYBRAIN...$(NC)"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)POLYMORPH COMPILED!$(NC)"
+	@echo "$(GREEN)POLYBRAIN COMPILED!$(NC)"
 
 clean:
 	@echo "$(LILA)CLEANING OBJECTS FILES...$(NC)"

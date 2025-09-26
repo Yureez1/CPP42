@@ -6,11 +6,19 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:18:30 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/09 12:32:58 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/12 15:08:50 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap() : ClapTrap("noname") {
+    this->_hit_points = 100;
+    this->_energy_points = 100;
+    this->_attack_damage = 30;
+    
+    std::cout << this->_name << " CREATED as default FragTrap" << std::endl;
+}
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
 
@@ -18,7 +26,7 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
     this->_energy_points = 100;
     this->_attack_damage = 30;
     
-    std::cout << this->_name << " CREATED as FragTrap" << std::endl;
+    std::cout << this->_name << " CREATED as ctor FragTrap" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
@@ -39,7 +47,7 @@ void FragTrap::highFivesGuys(void) {
     if (this->_hit_points > 0) {
         std::cout << this->_name << " GOOD JOB, HIGH FIVES GUYS!" << std::endl; 
     } else {
-        std::cout << this->_name << " is dead... no high fives today" << std::endl;
+        std::cout << this->_name << " can't launch high fives guys: is dead!" << std::endl;
     }
 }
 

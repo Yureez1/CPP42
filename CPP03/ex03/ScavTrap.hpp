@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 12:18:43 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/09 14:29:57 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/12 15:09:35 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class ScavTrap : public virtual ClapTrap {
 
 public:
+    ScavTrap();
     ScavTrap(const std::string& name);
     ScavTrap(const ScavTrap& other);
     ScavTrap& operator=(const ScavTrap& other);

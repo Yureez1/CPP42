@@ -2,7 +2,7 @@ NAME = Polymorph
 CXX = c++
 OBJS = $(SRCS:.cpp=.o)
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98 -g
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 LILA = \033[1;38;5;206m
 GREEN = \033[32m

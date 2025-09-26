@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbanchon <jbanchon@student42.fr>           +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 17:27:31 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/08/25 17:57:34 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:42:09 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 int main(int argc, char **argv) {
+    
     Harl harl;
 
     if (argc == 2) {
