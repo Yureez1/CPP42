@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 13:21:51 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/26 13:28:30 by jbanchon         ###   ########.fr       */
+/*   Created: 2025/09/27 13:27:18 by jbanchon          #+#    #+#             */
+/*   Updated: 2025/09/27 19:30:58 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name), _grade(grade) {
     if (_grade < 1) {
@@ -81,4 +82,13 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b) {
     out << b.getName() << ", Bureaucrat Grade: " << b.getGrade();
     return out;
+}
+
+void Bureaucrat::signForm(Form& form) const {
+    try {
+        form.beSigned(*this);
+        std::cout << _name << " signed " << form << std::endl;
+    } catch (const std::exception& f) {
+        std::cout << _name << " couldn't sign " << form.getName() << " because " << f.what() << std::endl;
+    }
 }

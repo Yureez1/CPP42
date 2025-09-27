@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 13:21:47 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/26 16:58:42 by jbanchon         ###   ########.fr       */
+/*   Created: 2025/09/27 13:27:27 by jbanchon          #+#    #+#             */
+/*   Updated: 2025/09/27 19:22:59 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void) {
     
@@ -25,7 +26,7 @@ int main(void) {
         Bureaucrat b("Alexandre", 150);
         std::cout << std::endl;
         
-        c = new Bureaucrat("Seyf", 1);
+        c = new Bureaucrat("Seyf", 2);
         std::cout << std::endl;
 
         // UNCOMMENT TO CATCH THE ERROR MESSAGE
@@ -81,10 +82,52 @@ int main(void) {
         Bureaucrat g(b);
         std::cout << g << std::endl;
 
-        std::cout << std::endl;
-        std::cout << "=====DESTRUCTOR TESTS=====" << std::endl;
+        
+        std::cout << "=====FORM CONSTRUCTOR TESTS=====" << std::endl;
         std::cout << std::endl;
         
+        Form f1("Contract", 50, 20);
+        std::cout << std::endl;
+        
+        Form f2("Top Secret", 1, 1);
+        std::cout << std::endl;
+        
+        std::cout << f1 << std::endl;
+        std::cout << f2 << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "=====CAN SIGNFORM TESTS=====" << std::endl;
+        std::cout << std::endl;
+        
+        a.signForm(f1);
+        a.incrementGrade();
+        std::cout << a << std::endl;
+        a.signForm(f2);
+        std::cout << std::endl;
+               
+        std::cout << f1 << std::endl;
+        std::cout << f2 << std::endl;
+        std::cout << std::endl;
+
+        c->signForm(f1);
+        c->signForm(f1);
+        std::cout << f1 << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "=====CANNOT SIGNFORM TESTS=====" << std::endl;
+        std::cout << std::endl;
+
+        b.signForm(f1);
+        std::cout << b << std::endl;
+        b.signForm(f2);
+        std::cout << std::endl;
+
+        std::cout << f1 << std::endl;
+        std::cout << f2 << std::endl;
+        std::cout << std::endl;
+        
+        std::cout << "=====DESTRUCTOR TESTS=====" << std::endl;
+        std::cout << std::endl;
     }
     catch (const std::exception& e) {
         std::cout << "Error detected : " << e.what() << std::endl;

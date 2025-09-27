@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/25 13:21:49 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/27 15:05:30 by jbanchon         ###   ########.fr       */
+/*   Created: 2025/09/27 13:27:20 by jbanchon          #+#    #+#             */
+/*   Updated: 2025/09/27 18:50:36 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
+
+class Form;
 
 class Bureaucrat {
 
@@ -34,6 +36,8 @@ class Bureaucrat {
 
     void incrementGrade();
     void decrementGrade();
+    
+    void signForm(Form& form) const;
     
     class GradeTooHighException : public std::exception {
         
