@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 13:27:23 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/27 19:41:14 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/29 06:28:34 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,20 @@ unsigned int Form::getRequiredSignGrade() const {
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& f) {
-    out << f.getName() << ", signed: " << (f.getSign() ? "true" : "false") 
+    out << f.getName() << ", signed: " << f.getSign()
     << ", grade to sign: " << f.getRequiredSignGrade() 
     << ", grade to execute: " << f.getRequiredExecGrade();
     return out;
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-    return "Grade too high";
+    return "Form: Grade too high";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-    return "Grade too low";
+    return "Form: Grade too low";
 }
 
 const char* Form::AlreadySignedException::what() const throw(){
-    return "Already signed";
+    return "Form: Already signed";
 }

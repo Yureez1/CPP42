@@ -1,4 +1,4 @@
-NAME = Form
+NAME = Bureaucrat
 CXX = c++
 OBJS = $(SRCS:.cpp=.o)
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98 -g
@@ -11,9 +11,9 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(LILA)FORM...$(NC)"
+	@echo "$(LILA)BUREAUCRAT...$(NC)"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)FORM COMPILED!$(NC)"
+	@echo "$(GREEN)BUREAUCRAT COMPILED!$(NC)"
 
 clean:
 	@echo "$(LILA)CLEANING OBJECTS FILES...$(NC)"
