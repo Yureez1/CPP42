@@ -6,11 +6,12 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:38 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/29 10:52:42 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/30 10:39:16 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 AForm::AForm(const std::string& name, unsigned int signGrade, unsigned int execGrade, const std::string& target) : _name(name), _isSigned(false), _required_sign_grade(signGrade),_required_exec_grade(execGrade), target(_target) {
     if (_required_sign_grade < 1 || _required_exec_grade < 1)
@@ -72,7 +73,13 @@ void AForm::beSigned(const Bureaucrat& b) {
 }
 
 void AForm::execute(Bureaucrat const& executor) const {
-    
+    if (!_isSigned) {
+        throw NotSignedException();
+    }
+    if (executor.getGrade() > _required_exec_grade) {
+        throw GradeTooLowException();
+    }
+    doExecute();
 }
 
 const char* AForm::GradeTooHighException::what() const throw() {

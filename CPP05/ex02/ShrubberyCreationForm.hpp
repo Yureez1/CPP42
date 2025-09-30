@@ -6,7 +6,23 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:23 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/29 07:27:24 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/30 14:47:18 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
+
+#include "AForm.hpp"
+#include <fstream>
+
+class ShrubberyCreationForm : public AForm {
+
+public:
+    ShrubberyCreationForm(const std::string& target);
+    ShrubberyCreationForm(const ShrubberyCreationForm& other);
+    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+    ~ShrubberyCreationForm();
+};
+
+#endif
