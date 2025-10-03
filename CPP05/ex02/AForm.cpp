@@ -6,14 +6,14 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:38 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/30 10:39:16 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/03 11:02:24 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(const std::string& name, unsigned int signGrade, unsigned int execGrade, const std::string& target) : _name(name), _isSigned(false), _required_sign_grade(signGrade),_required_exec_grade(execGrade), target(_target) {
+AForm::AForm(const std::string& name, unsigned int signGrade, unsigned int execGrade, const std::string& target) : _name(name), _isSigned(false), _required_sign_grade(signGrade),_required_exec_grade(execGrade), _target(target) {
     if (_required_sign_grade < 1 || _required_exec_grade < 1)
         throw GradeTooHighException();
     if (_required_sign_grade > 150 || _required_exec_grade > 150)
@@ -25,7 +25,7 @@ AForm::AForm(const std::string& name, unsigned int signGrade, unsigned int execG
     << "Exec Grade: " << _required_exec_grade << std::endl; 
 }
 
-AForm::AForm(const AForm& other) : _name(other._name), _isSigned(other._isSigned), _required_sign_grade(other._required_sign_grade), _required_exec_grade(other._required_exec_grade), target(other._target) {
+AForm::AForm(const AForm& other) : _name(other._name), _isSigned(other._isSigned), _required_sign_grade(other._required_sign_grade), _required_exec_grade(other._required_exec_grade), _target(other._target) {
     if (_required_sign_grade < 1 || _required_exec_grade < 1)
         throw GradeTooHighException();
     if (_required_sign_grade > 150 || _required_exec_grade > 150)
@@ -60,7 +60,7 @@ unsigned int AForm::getGradeToExec() const {
     return _required_exec_grade;
 }
 
-const std::string& getTarget() const {
+const std::string& AForm::getTarget() const {
     return _target;
 }
 

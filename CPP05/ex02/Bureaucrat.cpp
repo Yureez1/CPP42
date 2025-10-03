@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:33 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/29 07:37:04 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/03 10:59:28 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void Bureaucrat::signForm(AForm& form) const {
     }
 }
 
-void Bureaucrat::executeForm(AForm& const form) {
+void Bureaucrat::executeForm(AForm& form) const {
     try {
         form.execute(*this);
         std::cout << _name << " executed " << form.getName() << std::endl;

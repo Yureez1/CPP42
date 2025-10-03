@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:12 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/30 14:31:43 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/03 10:30:41 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ public:
     PresidentialPardonForm(const PresidentialPardonForm& other);
     PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
     ~PresidentialPardonForm();
+
+    virtual void doExecute() const;
 };
 
 #endif

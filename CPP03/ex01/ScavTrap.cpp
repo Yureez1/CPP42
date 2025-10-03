@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:45:39 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/12 15:02:29 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/26 12:57:25 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
     std::cout << "ScavTrap created as copy" << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+ScavTrap& ScavTrap::operator=(const ScavTrap& other) {+
     
     if (this != &other) {
         ClapTrap::operator=(other);
+        std::cout << "operator called" << std::endl;
     }
     return *this;
 }

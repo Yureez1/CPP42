@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:45:33 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/11 12:18:11 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/09/26 13:01:00 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,8 @@ int main(void) {
         b.takeDamage(1);
         b.guardGate();
     }
+    std::cout << std::endl;
+    ScavTrap c;
+    c = b;
+    c.attack("Dummy");
 }

@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:17 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/30 14:31:48 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/03 11:02:31 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <ctime>
 
 class RobotomyRequestForm : public AForm {
     
@@ -22,7 +23,9 @@ public:
     RobotomyRequestForm(const RobotomyRequestForm& other);
     RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
     ~RobotomyRequestForm();
-}
+
+    virtual void doExecute() const;
+};
 
 
 #endif
