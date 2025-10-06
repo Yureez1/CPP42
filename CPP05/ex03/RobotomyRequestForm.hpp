@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:17 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/06 14:49:58 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/03 11:02:31 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include "AForm.hpp"
 #include <ctime>
-#include <cstdlib>
 
 class RobotomyRequestForm : public AForm {
     

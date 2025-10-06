@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 07:27:17 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/06 14:49:58 by jbanchon         ###   ########.fr       */
+/*   Created: 2025/10/06 14:41:21 by jbanchon          #+#    #+#             */
+/*   Updated: 2025/10/06 17:01:11 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
+#include <string>
 #include "AForm.hpp"
-#include <ctime>
-#include <cstdlib>
 
-class RobotomyRequestForm : public AForm {
-    
+class Intern {
+
 public:
-    RobotomyRequestForm(const std::string& target);
-    RobotomyRequestForm(const RobotomyRequestForm& other);
-    RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-    ~RobotomyRequestForm();
+    Intern();
+    Intern(const Intern& other);
+    Intern& operator=(const Intern& other);
+    ~Intern();
 
-    virtual void doExecute() const;
+    AForm* makeForm(AForm &form, std::string &target) const;
+
+    class UnknownFormException : public std::exception {
+    public:
+        const char* what() const throw();
+    };
 };
-
 
 #endif
