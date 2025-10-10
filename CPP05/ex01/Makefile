@@ -1,23 +1,48 @@
 NAME = Form
 CXX = c++
-OBJS = $(SRCS:.cpp=.o)
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98 -g
+
+# =============================================#
+# =================🔹FOLDERS🔹=================#
+# =============================================#
+SRCS_DIR = .
+OBJS_DIR = obj
+
+# =============================================#
+# ================🔹SRCS/OBJS🔹================#
+# =============================================#
 SRCS = Bureaucrat.cpp Form.cpp main.cpp
+OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
+
+# =============================================#
+# =================🔹COLORS🔹==================#
+# =============================================#
 
 LILA = \033[1;38;5;206m
 GREEN = \033[32m
 NC = \033[0m
 
+# =============================================#
+# ==================🔹RULES🔹==================#
+# =============================================#
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(LILA)FORM...$(NC)"
+	@echo "$(LILA)BUREAUCRAT Form...$(NC)"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)FORM COMPILED!$(NC)"
+	@echo "$(GREEN)BUREAUCRAT Form COMPILED!✅​$(NC)"
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo "$(GREEN)Compiled: $<✅​"
+
+$(OBJS_DIR):
+	@mkdir -p $(OBJS_DIR)
 
 clean:
 	@echo "$(LILA)CLEANING OBJECTS FILES...$(NC)"
-	@rm -f $(OBJS)
+	@rm -rf $(OBJS_DIR)
 	@echo "$(GREEN)OBJECTS FILES CLEANED!$(NC)"
 
 fclean: clean

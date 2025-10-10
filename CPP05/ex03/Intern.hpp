@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:41:21 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/06 17:01:11 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:32:03 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <string>
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 class Intern {
 
@@ -24,7 +27,7 @@ public:
     Intern& operator=(const Intern& other);
     ~Intern();
 
-    AForm* makeForm(AForm &form, std::string &target) const;
+    AForm* makeForm(const std::string& form, const std::string& target) const;
 
     class UnknownFormException : public std::exception {
     public:

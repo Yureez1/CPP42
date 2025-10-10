@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:38 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/03 11:02:24 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:38:22 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ AForm::AForm(const std::string& name, unsigned int signGrade, unsigned int execG
         throw GradeTooHighException();
     if (_required_sign_grade > 150 || _required_exec_grade > 150)
         throw GradeTooLowException();
-    std::cout << "Form default constructor called" << std::endl 
+    std::cout << "Form default constructor called" << std::endl
     << "Name: " << _name << std::endl
     << "Signed: " << _isSigned << std::endl
     << "Sign Grade: " << _required_sign_grade << std::endl
-    << "Exec Grade: " << _required_exec_grade << std::endl; 
+    << "Exec Grade: " << _required_exec_grade << std::endl;
 }
 
 AForm::AForm(const AForm& other) : _name(other._name), _isSigned(other._isSigned), _required_sign_grade(other._required_sign_grade), _required_exec_grade(other._required_exec_grade), _target(other._target) {
@@ -102,4 +102,9 @@ const char* AForm::AlreadySignedException::what() const throw() {
     return "Already signed";
 }
 
-std::ostream& operator<<(std::ostream& out, const AForm& f);
+std::ostream& operator<<(std::ostream& out, const AForm& f) {
+    out << f.getName() << ", signed: " << f.getSign()
+    << ", grade to sign: " << f.getGradeToSign()
+    << ", grade to execute: " << f.getGradeToExec();
+    return out;
+}

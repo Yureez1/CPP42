@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 07:27:28 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/06 14:32:16 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:47:47 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,80 +14,88 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <ctime>
-#include <cstdlib>
-#include <stdio.h>
+#include "Intern.hpp"
+#include "AForm.hpp"
 
 int main(void) {
-    srand(time(NULL));
+
+    std::cout << "===== INTERN CREATION =====" << std::endl;
+
+    Intern RandomIntern;
+    AForm* form;
 
     try {
+
         std::cout << "===== BUREAUCRATS CREATION =====" << std::endl;
         std::cout << std::endl;
-        
+
         Bureaucrat high("HighRank", 1);
         std::cout << std::endl;
-        
-        Bureaucrat mid("MidRank", 50);
+
+        std::cout << "===== INTERN SHRUBBERY FORM CREATION =====" << std::endl;
         std::cout << std::endl;
 
-        Bureaucrat low("LowRank", 150);
+        form = RandomIntern.makeForm("shrubbery request", "Garden");
         std::cout << std::endl;
 
-        std::cout << "===== FORMS CREATION =====" << std::endl;
+        std::cout << *form << std::endl;
         std::cout << std::endl;
 
-        ShrubberyCreationForm shrub("home");
-        std::cout << std::endl;
-        
-        RobotomyRequestForm robot("E.T");
-        std::cout << std::endl;
-        
-        PresidentialPardonForm pardon("populas");
+        high.signForm(*form);
+        std::cout << *form << std::endl;
         std::cout << std::endl;
 
-        std::cout << "===== SIGNING TESTS =====" << std::endl;
-        std::cout << std::endl;
-        
-        low.signForm(shrub);
-        std::cout << std::endl;
-        
-        mid.signForm(shrub);
-        std::cout << std::endl;
-        
-        high.signForm(robot);
-        std::cout << std::endl;
-        
-        high.signForm(pardon);
-        std::cout << std::endl;
-        
-        std::cout << "===== EXECUTION TESTS =====" << std::endl;
+        delete form;
+
+        std::cout << "===== INTERN ROBOTOMY FORM CREATION =====" << std::endl;
         std::cout << std::endl;
 
-        low.executeForm(shrub);
+        form = RandomIntern.makeForm("robotomy request", "Garden");
         std::cout << std::endl;
 
-        mid.executeForm(shrub);
+        std::cout << *form << std::endl;
         std::cout << std::endl;
 
-        low.executeForm(robot);
+        high.signForm(*form);
+        std::cout << *form << std::endl;
         std::cout << std::endl;
 
-        high.executeForm(robot);
+        delete form;
+
+        std::cout << "===== INTERN PRESIDENTIAL FORM CREATION =====" << std::endl;
         std::cout << std::endl;
 
-        high.executeForm(pardon);
-        std::cout << std::endl;
-        
-        std::cout << "===== ALREADY SIGNED TEST =====" << std::endl;
+        form = RandomIntern.makeForm("presidential request", "Garden");
         std::cout << std::endl;
 
-        mid.signForm(shrub);
+        std::cout << *form << std::endl;
         std::cout << std::endl;
-        
+
+        high.signForm(*form);
+        std::cout << *form << std::endl;
+        std::cout << std::endl;
+
+        delete form;
+
+        std::cout << "===== INTERN UNKNOWN FORM CREATION =====" << std::endl;
+        std::cout << std::endl;
+
+        form = RandomIntern.makeForm("Unknown request", "Garden");
+        std::cout << std::endl;
+
+        std::cout << *form << std::endl;
+        std::cout << std::endl;
+
+        high.signForm(*form);
+        std::cout << *form << std::endl;
+        std::cout << std::endl;
+
+        delete form;
+
         std::cout << "===== DESTRUCTOR TESTS =====" << std::endl;
         std::cout << std::endl;
-        
+
+
     } catch (std::exception const& e) {
         std::cout << "Error detected: " << e.what() << std::endl;
     }

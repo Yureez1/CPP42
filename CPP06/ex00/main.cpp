@@ -3,10 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 16:03:30 by julien            #+#    #+#             */
-/*   Updated: 2025/10/08 16:03:31 by julien           ###   ########.fr       */
+/*   Updated: 2025/10/09 11:46:34 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ScalarConverter.hpp"
+
 

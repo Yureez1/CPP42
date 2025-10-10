@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 13:27:23 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/29 06:28:34 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:39:59 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ Form::Form(const std::string& name, unsigned int signGrade, unsigned int execGra
         throw GradeTooHighException();
     if (_required_sign_grade > 150 || _required_exec_grade > 150)
         throw GradeTooLowException();
-    std::cout << "Form default constructor called" << std::endl 
+    std::cout << "Form default constructor called" << std::endl
     << "Name: " << _name << std::endl
     << "Signed: " << _isSigned << std::endl
     << "Sign Grade: " << _required_sign_grade << std::endl
-    << "Exec Grade: " << _required_exec_grade << std::endl; 
+    << "Exec Grade: " << _required_exec_grade << std::endl;
 }
 
 Form::Form(const Form& other) : _name(other._name), _isSigned(other._isSigned), _required_sign_grade(other._required_sign_grade), _required_exec_grade(other._required_exec_grade) {
@@ -60,20 +60,14 @@ bool Form::getSign() const {
     return _isSigned;
 }
 
-unsigned int Form::getRequiredExecGrade() const {
+unsigned int Form::getGradeToExec() const {
     return _required_exec_grade;
 }
 
-unsigned int Form::getRequiredSignGrade() const {
+unsigned int Form::getGradeToSign() const {
     return _required_sign_grade;
 }
 
-std::ostream& operator<<(std::ostream& out, const Form& f) {
-    out << f.getName() << ", signed: " << f.getSign()
-    << ", grade to sign: " << f.getRequiredSignGrade() 
-    << ", grade to execute: " << f.getRequiredExecGrade();
-    return out;
-}
 
 const char* Form::GradeTooHighException::what() const throw() {
     return "Form: Grade too high";
@@ -85,4 +79,11 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 const char* Form::AlreadySignedException::what() const throw(){
     return "Form: Already signed";
+}
+
+std::ostream& operator<<(std::ostream& out, const Form& f) {
+    out << f.getName() << ", signed: " << f.getSign()
+    << ", grade to sign: " << f.getGradeToSign()
+    << ", grade to execute: " << f.getGradeToExec();
+    return out;
 }

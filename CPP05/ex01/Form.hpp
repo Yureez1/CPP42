@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 13:27:25 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/09/27 19:28:39 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:39:00 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Bureaucrat;
 
 class Form {
-    
+
 private:
     const std::string _name;
     bool _isSigned;
@@ -34,27 +34,27 @@ public:
     ~Form();
 
     void beSigned(const Bureaucrat& b);
-    
+
     std::string getName() const;
     bool getSign() const;
-    unsigned int getRequiredSignGrade() const;
-    unsigned int getRequiredExecGrade() const;
-    
-    
+    unsigned int getGradeToSign() const;
+    unsigned int getGradeToExec() const;
+
+
     class GradeTooHighException : public std::exception {
-        
+
     public:
         virtual const char* what() const throw();
     };
 
     class GradeTooLowException : public std::exception {
-    
+
     public:
         virtual const char* what() const throw();
     };
 
     class AlreadySignedException : public std::exception {
-        
+
     public:
         virtual const char* what() const throw();
     };
