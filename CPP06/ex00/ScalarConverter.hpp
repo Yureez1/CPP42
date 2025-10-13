@@ -3,18 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 16:03:35 by julien            #+#    #+#             */
-/*   Updated: 2025/10/09 15:05:22 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/12 19:08:35 by julien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-#include <string>
-#include <iostream>
+# include <iostream>
+# include <string>
+# include <sstream>
+# include <limits>
+# include <cstdlib>
+# include <iomanip>
+# include <cmath>
+# include <cctype>
 
 class ScalarConverter {
 
@@ -35,6 +41,7 @@ private:
     };
 
     static bool isOnlySpace(std::string const& str);
+    static bool hasAnySpace(std::string const& str);
 
     static bool isChar(std::string const& str);
     static bool isInt(std::string const& str);

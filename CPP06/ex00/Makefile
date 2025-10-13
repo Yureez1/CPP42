@@ -29,9 +29,9 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(LILA)SCALARCONVERTER Form...$(NC)"
+	@echo "$(LILA)SCALARCONVERTER...$(NC)"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)SCALARCONVERTER Form COMPILED!✅​$(NC)"
+	@echo "$(GREEN)SCALARCONVERTER COMPILED!✅​$(NC)"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@

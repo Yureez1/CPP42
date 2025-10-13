@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 19:42:17 by julien            #+#    #+#             */
-/*   Updated: 2025/10/13 09:30:21 by julien           ###   ########.fr       */
+/*   Created: 2025/10/13 10:29:08 by julien            #+#    #+#             */
+/*   Updated: 2025/10/13 10:32:09 by julien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-#define DATA_HPP
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-#include <string>
+#include "Base.hpp"
+#include <ctime>
+#include <cstdlib>
+#include <iostream>
 
-struct Data {
-private:
-
-public:
-    int         id;
-    std::string name;
-    double      score;
-};
+Base* generate(void);
+void identify(Base* p);
+void identify(Base& p);
 
 #endif
