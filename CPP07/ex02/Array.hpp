@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 11:41:53 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/15 12:11:45 by jbanchon         ###   ########.fr       */
+/*   Created: 2025/10/15 12:15:29 by jbanchon          #+#    #+#             */
+/*   Updated: 2025/10/15 17:02:29 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
+#include <exception>
 #include <string>
 #include <iostream>
 
-template <typename T>
-void swap(T& v1, T& v2){
-    T v3;
+template<typename T>
 
-    v3 = v1;
-    v1 = v2;
-    v2 = v3;
-}
+class Array {
 
-template <typename N>
-N const& min(N const& n1, N const& n2) {
-    return (n1 < n2 ? n1 : n2);
-}
+    private:
+    T* _array;
+    unsigned int _size;
 
-template <typename N>
-N const& max(N const& n1, N const& n2) {
-    return (n1 > n2 ? n1 : n2);
-}
+    public:
+    Array();
+    Array(unsigned int n);
+    Array(const Array& other);
+    Array& operator=(const Array& other);
+    ~Array();
 
+    unsigned int size() const;
+
+    T& operator[](unsigned int index);
+    const T& operator[](unsigned int index) const;
+};
+
+#include "Array.tpp"
 
 #endif

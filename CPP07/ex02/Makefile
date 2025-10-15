@@ -1,4 +1,4 @@
-NAME = Iter
+NAME = Array
 CXX = c++
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98 -g
 
@@ -29,9 +29,9 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(LILA)ITER...$(NC)"
+	@echo "$(LILA)ARRAY...$(NC)"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)ITER COMPILED!✅​$(NC)"
+	@echo "$(GREEN)ARRAY COMPILED!✅​$(NC)"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@

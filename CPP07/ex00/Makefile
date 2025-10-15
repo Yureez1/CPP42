@@ -29,9 +29,9 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(LILA)Templates...$(NC)"
+	@echo "$(LILA)TEMPLATES...$(NC)"
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)Templates COMPILED!✅​$(NC)"
+	@echo "$(GREEN)TEMPLATES COMPILED!✅​$(NC)"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
