@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 16:03:33 by julien            #+#    #+#             */
-/*   Updated: 2025/10/12 19:12:08 by julien           ###   ########.fr       */
+/*   Updated: 2025/10/16 08:59:26 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,14 +160,16 @@ ScalarConverter::e_type ScalarConverter::detectType(std::string const& str) {
         return TYPE_PSEUDO_DOUBLE;
     if (isChar(str))
         return TYPE_CHAR;
-	if (isInt(str))
+    if (isInt(str))
         return TYPE_INT;
-	if (isFloat(str))
+    if (isFloat(str))
         return TYPE_FLOAT;
-	if (isDouble(str))
+    if (isDouble(str))
         return TYPE_DOUBLE;
     return TYPE_INVALID;
 }
+
+/*Printing depending of type*/
 
 static void printCharFromLong(double value) {
     if (std::isnan(value) || std::isinf(value) || value < 0 || value > 255) {
@@ -194,7 +196,10 @@ static void printFloat(double value) {
         return ;
     }
     if (std::isinf(value)) {
-        std::cout << "float: " << (value > 0 ? "+inff" : "-inff") << std::endl;
+        if (value > 0)
+            std::cout << "float: +inff" << std::endl;
+        else
+            std::cout << "float: -inff" << std::endl;
         return ;
     }
     float f = static_cast<float>(value);
@@ -208,13 +213,17 @@ static void printDouble(double value) {
         return ;
     }
     if (std::isinf(value)) {
-        std::cout << "double: " << (value > 0 ? "+inf" : "-inf") << std::endl;
+        if (value > 0)
+            std::cout << "double: +inf" << std::endl;
+        else
+            std::cout << "double: -inf" << std::endl;
         return ;
     }
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "double: " << value << std::endl;
 }
 
+/*Converting depending of type*/
 void ScalarConverter::convert(std::string const& literal) {
     e_type type = detectType(literal);
 

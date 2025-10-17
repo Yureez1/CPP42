@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 10:29:08 by julien            #+#    #+#             */
-/*   Updated: 2025/10/13 10:32:09 by julien           ###   ########.fr       */
+/*   Updated: 2025/10/14 11:35:44 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <iostream>
+#include <typeinfo>
 
 Base* generate(void);
 void identify(Base* p);

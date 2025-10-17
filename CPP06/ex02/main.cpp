@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 11:18:09 by julien            #+#    #+#             */
-/*   Updated: 2025/10/13 11:21:08 by julien           ###   ########.fr       */
+/*   Updated: 2025/10/16 08:41:22 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Utils.hpp"
 
 int main() {
-    for (int i = 0; i < 5; i++){
-        Base* p = generate();
-        std::cout << "identify(Base*): ";
-        identify(p);
-        std::cout << "identify(Base&): ";
-        identify(*p);
-        delete p;
-        std::cout << "----\n";
-    }
+    
+    std::srand(std::time(NULL));
 
-    std::cout << "identify(Base* nullptr): ";
-    identify(static_cast<Base*>(0));
-    return 0;
+    Base* p = generate();
+    identify(p);
+    identify(*p);
+    delete p;
 }

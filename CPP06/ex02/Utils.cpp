@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 10:30:05 by julien            #+#    #+#             */
-/*   Updated: 2025/10/13 10:42:11 by julien           ###   ########.fr       */
+/*   Updated: 2025/10/16 08:40:42 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,15 @@
 #include "Base.hpp"
 
 Base* generate(void) {
-    static bool seeded = false;
-    if (!seeded) {
-        std::srand(static_cast<unsigned int>(std::time(0)));
-        seeded = true;
-    }
-
     int r = std::rand() % 3;
+
     switch(r) {
         case 0: std::cout << "[generate] -> A" << std::endl;
         return new A();
+
         case 1: std::cout << "[generate] -> B" << std::endl;
         return new B();
+        
         default: std::cout << "[generate] -> C" << std::endl;
         return new C();
     }
@@ -72,6 +69,6 @@ void identify(Base& p) {
         std::cout << "C" << std::endl;
         return;
     } catch (std::bad_cast&) {}
-    
+
     std::cout << "Unknown" << std::endl;
 }

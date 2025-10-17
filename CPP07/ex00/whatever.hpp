@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 11:41:53 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/15 12:11:45 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:44:49 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 
 template <typename T>
 void swap(T& v1, T& v2){
-    T v3;
-
-    v3 = v1;
+    T v3 = v1;
     v1 = v2;
     v2 = v3;
 }

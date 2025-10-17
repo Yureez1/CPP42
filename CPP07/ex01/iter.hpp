@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:15:54 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/15 12:13:58 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:54:59 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,13 @@
 #include <string>
 #include <iostream>
 
-
-template<typename T>
-static void iter(T* p1, size_t p2, void(*fn)(T&)) {
-    if (!p1)
+template<typename T, typename Func>
+static void iter(T* arr, size_t len, Func f) {
+    if (!arr)
         return ;
-    for (size_t i = 0; i < p2; i++) {
-        fn(p1[i]);
+    for (size_t i = 0; i < len; i++) {
+        f(arr[i]);
     }
 }
-
-template<typename T>
-static void iter(const T* p1, size_t p2,  void(*fn)(const T&)) {
-    if (!p1)
-        return ;
-    for (size_t i = 0; i < p2; i++) {
-        fn(p1[i]);
-    }
-};
 
 #endif

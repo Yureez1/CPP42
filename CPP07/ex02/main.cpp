@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:15:27 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/15 17:34:41 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/17 09:01:10 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,3 +96,4 @@ int main(void) {
         std::cout << "Exception caugth : " << e.what() << std::endl;
     }
 }
+

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 16:03:35 by julien            #+#    #+#             */
-/*   Updated: 2025/10/12 19:08:35 by julien           ###   ########.fr       */
+/*   Updated: 2025/10/14 11:06:23 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <iomanip>
 # include <cmath>
 # include <cctype>
+#include <cerrno>
 
 class ScalarConverter {
 
