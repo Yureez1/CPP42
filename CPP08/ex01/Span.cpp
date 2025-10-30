@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 15:56:59 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/23 17:55:10 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/29 18:43:02 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Span::Span(unsigned int n) : _capacity(n), _data() {}
 
 Span::Span(const Span& other) : _capacity(other._capacity), _data(other._data){}
 
-Span Span::operator=(const Span& other) {
+Span& Span::operator=(Span const& other) {
     if (this != &other){
         _capacity = other._capacity;
         _data = other._data;
@@ -34,23 +34,38 @@ unsigned int Span::capacity() const {
     return _capacity;
 }
 
+std::vector<int>::const_iterator Span::begin() const {
+    return _data.begin();
+}
+std::vector<int>::const_iterator Span::end() const {
+    return _data.end();
+}
+
+std::ostream& operator<<(std::ostream& os, const Span& sp) {
+    os << "[ ";
+    for (std::vector<int>::const_iterator it = sp.begin(); it != sp.end(); it++)
+        os << *it << " ";
+    os << "]";
+    return os;
+}
+
 void Span::addNumber(int n) {
     if (_data.size() >= _capacity)
         throw std::overflow_error("Span is full");
     _data.push_back(n);
 }
 
-template <typename It>
-void Span::addMultipleNumber(It first, It last) {
-    if (_data.size() >= _capacity)
+void Span::addMultipleNumber(int first, int last) {
+    if (first > last)
+        std::swap(first, last);
+
+    unsigned int needed = static_cast<unsigned int>(last - first + 1);
+    if (_data.size() + needed > _capacity)
         throw std::overflow_error("Span is full");
-    unsigned int needed = 0;
-    for (It it = first; it != last; it++)
-        needed++;
-    if (_data.size() + needed >= _capacity)
-        throw std::overflow_error("Span is full");
-    for (It it = first; it != last; it++)
-        _data.push_back(*it);
+    _data.reserve(_data.size() + needed);
+    for (int v = first; v <= last; v++)
+        _data.push_back(v);
+
 }
 
 unsigned int Span::shortestSpan() const {

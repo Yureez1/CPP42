@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:17:15 by julien            #+#    #+#             */
-/*   Updated: 2025/10/24 17:06:10 by julien           ###   ########.fr       */
+/*   Updated: 2025/10/29 17:34:33 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ public:
     iterator begin() { return this->c.begin(); };
     iterator end() { return this->c.end(); };
 
-    const iterator begin() const { return this->c.begin(); };
-    const iterator end() const { return this->c.end(); };
+    const_iterator begin() const { return this->c.begin(); };
+    const_iterator end() const { return this->c.end(); };
 
 };
 

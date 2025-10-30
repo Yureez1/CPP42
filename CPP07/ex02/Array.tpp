@@ -6,20 +6,22 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:15:24 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/17 09:00:01 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/20 15:01:44 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template<typename T>
-Array<T>::Array() : _array(0), _size(0) {}
-
-template<typename T>
-Array<T>::Array(unsigned int n) : _array(0), _size(n) {
+Array<T>::Array() : _size(0) {
     _array = new T[_size]();
 }
 
 template<typename T>
-Array<T>::Array(const Array& other) : _array(0), _size(other._size) {
+Array<T>::Array(unsigned int n) : _size(n) {
+    _array = new T[_size]();
+}
+
+template<typename T>
+Array<T>::Array(const Array& other) :  _size(other._size) {
     _array = new T[_size];
     for (unsigned int i = 0; i < _size; i++)
         _array[i] = other._array[i];
@@ -33,8 +35,8 @@ Array<T>& Array<T>::operator=(const Array& other) {
             newArray[i] = other._array[i];
 
         delete[] _array;
-        _array = newArray;
-        _size = other._size;
+        this->_array = newArray;
+        this->_size = other._size;
         }
     return *this;
 }

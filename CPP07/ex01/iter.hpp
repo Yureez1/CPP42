@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:15:54 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/10/16 12:54:59 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/10/20 14:44:06 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <iostream>
 
 template<typename T, typename Func>
-static void iter(T* arr, size_t len, Func f) {
+void iter(T* arr, size_t len, Func f) {
     if (!arr)
         return ;
     for (size_t i = 0; i < len; i++) {
