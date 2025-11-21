@@ -3,34 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julien <julien@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:06:20 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/11/12 16:52:19 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/11/16 14:56:25 by julien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 int main(int argc, char **argv) {
-    if (argc == 2) {
-        std::string input = argv[1];
-
-        BitcoinExchange btc;
-        if (!btc.check_file_extension(input)) {
-            std::cerr << "Error: File has to be .csv" << std::endl;
-            return 1;
-        }
-
-        std::ifstream file(input);
-        if (!file.is_open()) {
-            std::cerr << "Error: Impossible to open file " << input  << std::endl;
-            return 1;
-        }
-    }
-    else {
+    if (argc != 2) {
         std::cerr << "Usage: ./btc <input_file>" << std::endl;
-        return 1;
+        return EXIT_FAILURE;
     }
-    return 0;
+
+    std::string inputFile = argv[1];
+
+    BitcoinExchange btc(DATABASE_FILE);
+
+    btc.processInputFile(inputFile);
+    return EXIT_SUCCESS;
 }
