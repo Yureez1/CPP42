@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 12:37:53 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/11/24 17:52:02 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/11/25 10:49:12 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ private:
     std::list<int> _list;
 
     void _sortVector(std::vector<int>& arr);
-    void _insertInVector(std::vector<int>& mainChain, int element);
 
     void _sortList(std::list<int>& arr);
 
@@ -45,6 +44,7 @@ public:
 
     std::vector<int>::iterator binarySearch(std::vector<int>& main_chain, int target, std::vector<int>::iterator limit);
 
+    void run(int argc, char **argv);
 };
 
 
