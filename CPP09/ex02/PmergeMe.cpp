@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 12:37:51 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/11/25 11:55:38 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:53:52 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,13 @@ void PmergeMe::parseArgs(int argc, char **argv) {
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
 
-        for (size_t j = 0; j < arg.length(); j++) {
-            if (!isdigit(arg[j])) {
+        for (size_t j = 0; j < arg.size(); j++) {
+            if (!std::isdigit(arg[j])) {
                 std::cerr << "Error: non-numeric argument" << std::endl;
                 exit(EXIT_FAILURE);
             }
         }
-
-        long val = std::atol(arg.c_str());
+        long val = std::atol(argv[i]);
         if (val > std::numeric_limits<int>::max() || val < 0) {
             std::cerr << "Error: integer overflow or negative" << std::endl;
             exit(EXIT_FAILURE);
@@ -68,6 +67,8 @@ std::vector<int> PmergeMe::generateJacobsthal(int n) {
 }
 
 std::vector<int> PmergeMe::buildInsertionSequence(std::vector<int>& jacobsthal, int n) {
+
+    (void) jacobsthal;
     std::vector<int> seq;
 
     if (n < 1)
@@ -165,20 +166,24 @@ void PmergeMe::_sortVector(std::vector<int>& arr) {
 // }
 
 void PmergeMe::run(int argc, char **argv) {
-    for (int i = 1; i < argc; ++i) {
-        parseArgs(argc, argv);
-        int values = std::atoi(argv[i]);
-        _vector.push_back(values);
-    }
 
+    parseArgs(argc, argv);
+
+    std::cout << "Before : ";
     for (int i = 1; i < argc; ++i)
-        std::cout << "Before: " << argv[i] << std::endl;
+        std::cout  << _vector[i] << " ";
+    std::cout << std::endl;
 
     // Sort
+
     clock_t start = clock();
     _sortVector(_vector);
+
+    std::cout << "After : ";
     for (int i = 1; i < argc; ++i)
-        std::cout << "After: " << _vector[i] << std::endl;
+        std::cout << _vector[i] << " ";
+    std::cout << std::endl;
+
     clock_t end = clock();
     double time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 

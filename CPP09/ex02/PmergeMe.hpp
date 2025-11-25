@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 12:37:53 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/11/25 10:49:12 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:40:39 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <limits>
 #include <ctime>
 #include <iomanip>
+#include <stdio.h>
 
 class PmergeMe {
 
