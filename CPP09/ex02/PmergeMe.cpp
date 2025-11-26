@@ -6,7 +6,7 @@
 /*   By: jbanchon <jbanchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 12:37:51 by jbanchon          #+#    #+#             */
-/*   Updated: 2025/11/25 14:53:52 by jbanchon         ###   ########.fr       */
+/*   Updated: 2025/11/26 16:26:28 by jbanchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,10 @@ std::vector<int> PmergeMe::generateJacobsthal(int n) {
     std::vector<int> jacobsthal;
 
     jacobsthal.push_back(0);
-    jacobsthal.push_back(0);
+    jacobsthal.push_back(1);
 
-    // for (int i = 0; i < jacobsthal.size(); i++) {
-    //     i++;
-    // }
     int last_elem = 1;
+
     while (last_elem < n) {
         int next_val = jacobsthal.back() + (2 * jacobsthal[jacobsthal.size() - 2]);
         jacobsthal.push_back(next_val);
@@ -68,22 +66,22 @@ std::vector<int> PmergeMe::generateJacobsthal(int n) {
 
 std::vector<int> PmergeMe::buildInsertionSequence(std::vector<int>& jacobsthal, int n) {
 
-    (void) jacobsthal;
     std::vector<int> seq;
 
     if (n < 1)
         return seq;
 
-    for (int i = 3; i < n; ++i) {
+    size_t size = jacobsthal.size();
+    for (size_t i = 3; i < size; ++i) {
 
-        int upper = seq[i];
-        int lower = seq[i - 1];
+        int upper = jacobsthal[i];
+        int lower = jacobsthal[i - 1];
 
         if (upper > n)
             upper = n;
 
         for (int val = upper; val > lower; --val)
-            seq.push_back(val);
+            seq.push_back(val - 1);
 
         if (upper == n)
             break;
@@ -135,11 +133,13 @@ void PmergeMe::_sortVector(std::vector<int>& arr) {
         }
     }
     main_chain.insert(main_chain.begin(), pendulous[0]);
-    std::vector<int> jacobsthal = generateJacobsthal(pendulous.size() - 1);
-    std::vector<int> sequence = buildInsertionSequence(jacobsthal, pendulous.size() - 1);
+    std::vector<int> jacobsthal = generateJacobsthal(pendulous.size());
+    std::vector<int> sequence = buildInsertionSequence(jacobsthal, pendulous.size());
 
     for (size_t i = 0; i < sequence.size(); i++) {
         int idx = sequence[i];
+        if (idx >= (int)pendulous.size() || idx < 0)
+            continue;
         int valueToInsert = pendulous[idx];
 
         int limitValue = main_chain[0];
@@ -161,33 +161,113 @@ void PmergeMe::_sortVector(std::vector<int>& arr) {
     arr = main_chain;
 }
 
-// void PmergeMe::_sortList(std::list<int>& arr) {
+void PmergeMe::_sortList(std::list<int>& arr) {
+    if (arr.size() <= 1)
+        return;
 
-// }
+    int straggler = -1;
+    bool has_straggler = false;
+
+    if (arr.size() % 2 != 0) {
+        straggler = arr.back();
+        arr.pop_back();
+        has_straggler = true;
+    }
+    std::list<std::pair<int, int> > pairs;
+    std::list<int>::iterator it = arr.begin();
+
+    while (it != arr.end()) {
+        int first = *it;
+        it++;
+        if (it == arr.end())
+            break;
+        int second = *it;
+        it++;
+
+        if (first > second)
+            pairs.push_back(std::make_pair(first, second));
+        else
+            pairs.push_back(std::make_pair(second, first));
+    }
+
+    std::list<int> main_chain;
+    for (std::list<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it) {
+        main_chain.push_back(it->first);
+    }
+
+    _sortList(main_chain);
+
+    std::list<int> pendulous;
+    for (std::list<int>::iterator nc_it = main_chain.begin(); nc_it != main_chain.end(); ++nc_it) {
+        for (std::list<std::pair<int, int> >::iterator p_it = pairs.begin(); p_it != pairs.end(); ++p_it) {
+            if (p_it->first == *nc_it) {
+                pendulous.push_back(p_it->second);
+                break;
+            }
+        }
+    }
+    main_chain.insert(main_chain.begin(), pendulous.front());
+
+    std::vector<int> jacobsthal = generateJacobsthal(pendulous.size());
+    std::vector<int> sequence = buildInsertionSequence(jacobsthal, pendulous.size());
+
+    for (size_t i = 0; i < sequence.size(); i++) {
+        int idx = sequence[i];
+
+        if (idx >= (int)pendulous.size() || idx == 0)
+            continue;
+
+        std::list<int>::iterator pend_it = pendulous.begin();
+        std::advance(pend_it, idx);
+        int valueToInsert = *pend_it;
+
+        int limitValue = main_chain.front();
+        for (std::list<std::pair<int, int> >::iterator p_it = pairs.begin(); p_it != pairs.end(); ++p_it) {
+            if (p_it->second == valueToInsert) {
+                limitValue = p_it->first;
+                break;
+            }
+        }
+        std::list<int>::iterator limitIt = std::find(main_chain.begin(), main_chain.end(), limitValue);
+        std::list<int>::iterator pos = std::lower_bound(main_chain.begin(), limitIt, valueToInsert);
+
+        main_chain.insert(pos, valueToInsert);
+    }
+    if (has_straggler) {
+        std::list<int>::iterator pos = std::lower_bound(main_chain.begin(), main_chain.end(), straggler);
+        main_chain.insert(pos, straggler);
+    }
+    arr = main_chain;
+}
 
 void PmergeMe::run(int argc, char **argv) {
 
     parseArgs(argc, argv);
 
     std::cout << "Before : ";
-    for (int i = 1; i < argc; ++i)
+    for (size_t i = 0; i < _vector.size(); ++i)
         std::cout  << _vector[i] << " ";
     std::cout << std::endl;
 
-    // Sort
-
-    clock_t start = clock();
+    clock_t startVec = clock();
     _sortVector(_vector);
+    clock_t endVec = clock();
 
     std::cout << "After : ";
-    for (int i = 1; i < argc; ++i)
+    for (size_t i = 0; i < _vector.size(); ++i)
         std::cout << _vector[i] << " ";
     std::cout << std::endl;
 
-    clock_t end = clock();
-    double time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
+    double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
 
-    std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector " << time << " us" << std::endl;
+    clock_t startList = clock();
+    _sortList(_list);
+    clock_t endList = clock();
+
+    double timeList = static_cast<double>(endList - startList) / CLOCKS_PER_SEC * 1000000;
+
+    std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector : " << timeVec << " us" << std::endl;
+    std::cout << "Time to process a range of " << _list.size() << " elements with std::list : " << timeList << " us" << std::endl;
 }
 
 
